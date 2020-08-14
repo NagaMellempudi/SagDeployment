@@ -6,8 +6,9 @@
 	<property name="antlogger.echo" value="false"/>
 	
 	<target name="check-build.prop-loc">
+	<echo message="pathCWD: {pathCWD}" />
     <if>
-		<echo message="pathCWD: {pathCWD}" />
+		
         <available file="${pathCWD}/build.properties"/>
         <then> 
 		<native2ascii encoding="UTF-8" src="${pathCWD}" dest="${pathCWD}" includes="**/*.properties" ext=".properties.ascii"/>
