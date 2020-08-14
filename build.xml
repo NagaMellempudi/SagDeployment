@@ -11,9 +11,13 @@
 
 	<taskdef classpath="lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
 				
-	<target name="build" depends="initProject,buildWM">		
+	<target name="build" depends="">		
 		<description>Build project.</description>
 	</target>
+
+	<!-- <target name="build" depends="initProject,buildWM">		
+		<description>Build project.</description>
+	</target> -->
 		
 	<!-- <target name="deploy" depends="initProject,deployWM">
 		<description>Deploy project.</description>
