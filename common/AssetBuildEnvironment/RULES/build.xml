@@ -62,7 +62,7 @@
 		<classpath refid="classpath" />
 	</taskdef>
 
-	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${classpath}">
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="lib/ant-contrib.jar">
 		<classpath refid="classpath" />
 	</taskdef>
 	

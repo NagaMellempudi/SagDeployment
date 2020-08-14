@@ -6,7 +6,7 @@
 	<property name="master.lib.dir" value="../master_build/lib" />
 
 	<!-- Include Ant Contrib library tasks into the build script. -->
-	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${master.lib.dir}/ant-contrib.jar" />
+	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="lib/ant-contrib.jar" />
 
 	<property name="optimize.namespace.postfix" value="Optimize" />
 

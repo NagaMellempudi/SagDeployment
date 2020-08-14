@@ -4,7 +4,7 @@
 	name="webMethods Business Process Model">
 
 	<!-- the more advanced ant tasks (for, if) require this: -->
-	<taskdef classpath="../master_build/lib/ant-contrib.jar"
+	<taskdef classpath="lib/ant-contrib.jar"
 		resource="net/sf/antcontrib/antlib.xml" />
 
 	<macrodef name="iterate-projects">
