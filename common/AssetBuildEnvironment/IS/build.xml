@@ -187,6 +187,7 @@
 
 	<target name="generate-composites" depends="" description="This task will generate required composites for the passed configurations">
 		<echo level="info">Class Name: ${run.main.class.name}</echo>
+		<echo level="info">Update Path: ${IS.ant.lib.updates.dir}</echo>
 		<java fork="true" classname="${run.main.class.name}" classpathref="master-classpath" failonerror="true">    	
 		   <jvmarg value="${max.mem}" />
 		   <sysproperty key="is.acdl.config.dir" value="${is.acdl.config.dir}"/>
