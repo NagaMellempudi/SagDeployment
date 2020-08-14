@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Build and Deploy Solution" default="buildDeployTest" basedir="." >
+<project name="Build and Deploy Solution" default="build" basedir="." >
 	<!-- <property file="${project.properties}"/>
 	<property file="System.properties"/>
         
