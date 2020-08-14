@@ -8,7 +8,6 @@
 	<target name="check-build.prop-loc">
 	<echo level="info" >pathCWD: ${pathCWD}</echo>
     <if>
-		
         <available file="${pathCWD}/build.properties"/>
         <then> 
 		<native2ascii encoding="UTF-8" src="${pathCWD}" dest="${pathCWD}" includes="**/*.properties" ext=".properties.ascii"/>
