@@ -8,7 +8,7 @@
 	<!-- <import file="buildDeployer.xml"/>
 	<import file="buildTest.xml"/> -->
 
-	<taskdef classpath="lib/ant-contrib.jar" resource="/usr/bin/ant/net/sf/antcontrib/antlib.xml"/>
+	<taskdef classpath="lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
 				
 	<target name="build" depends="initProject,buildWM">		
 		<description>Build project.</description>
