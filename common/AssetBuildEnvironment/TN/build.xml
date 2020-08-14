@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BuildTN" default="build" basedir=".">
+
+ <property name="build_number" value = "${build.version}"/>
+ <property name="java_classname" value = "com.wm.app.tn.acdl.TNACDLBuilder"/>
+
+ <path id="tn.classpath">
+  <pathelement path="${sag.install.dir}/common/lib/wm-isclient.jar"  />      <!-- for jars in common-->
+  <pathelement path="${sag.install.dir}/common/lib/wm-scg-core.jar"  />
+  <pathelement path="${sag.install.dir}/common/lib/ext/jdom.jar"  />
+  <pathelement path="${sag.install.dir}/common/lib/glassfish/gf.jakarta.mail.jar"  />
+  <pathelement path="lib/editn.jar" />
+  <pathelement path="lib/ediintdoc.jar" />
+  <pathelement path="lib/tncore.jar" />
+  <pathelement path="lib/ffcore.jar" />
+  <pathelement path="lib/WmebXML.jar" />
+ </path>
+
+ <target name="clean">
+	<delete dir="${build.output.dir}/TN" />
+ </target>
+
+ <target name="init">
+	<mkdir dir="${build.output.dir}/TN" />
+ </target>
+	
+ <target name="build" depends="init">
+  <java classname="${java_classname}" failonerror="true" fork="true">
+	<sysproperty key="source" value="${build.source.dir}"/>
+	<!--<sysproperty key="tnsource" value="${TN.build.source.dir}"/>-->
+	<sysproperty key="solution" value="${build.source.project.dir}"/>
+	<!--<sysproperty key="tnsolution" value="${TN.build.source.project.dir}"/>-->
+	<sysproperty key="buildNumber" value="${build.version}"/>
+	<sysproperty key="target" value="${build.output.dir}"/>
+        <classpath>
+            <path refid="tn.classpath"/>
+        </classpath>
+    </java>
+ </target>
+
+</project>
