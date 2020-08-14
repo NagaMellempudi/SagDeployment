@@ -285,7 +285,7 @@
 	
 	
 	<!-- the more advanced ant tasks (for, if) require this: -->
-    <taskdef classpath = "lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
+    <taskdef classpath = "../../../lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
 	
 	<!-- 
 		The default target that will ant call for the target for build each product. The call to each build will depend 
