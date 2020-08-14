@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <project name="Build and Deploy Solution" default="build" basedir="." >
-	<!-- <property file="${project.properties}"/>
+	<property file="${project.properties}"/>
 	<property file="System.properties"/>
         
 	<import file="buildInitProject.xml"/>
-	<import file="buildCallABE.xml"/> -->
+	<import file="buildCallABE.xml"/>
 	<!-- <import file="buildDeployer.xml"/>
 	<import file="buildTest.xml"/> -->
 	
 
 	<taskdef classpath="lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
 				
-	<target name="build" depends="">		
+	<target name="build" depends="initProject">		
 		<description>Build project.</description>
 		<echo message="Hello Naga. Running initProject.." />
 	</target>
