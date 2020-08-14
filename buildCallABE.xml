@@ -20,7 +20,7 @@
 
 
 
-	<target name="buildWM" description="build project" depends="prepareABEproperties">				
+	<target name="buildWM" description="build project" depends="">				
 		<echo>invoke ABE Build</echo>					
 		<ant antfile="${abeBuildfileFile}" dir="${abeHome}/${abeBuildfileDir}" target="build"/>
 	</target>
