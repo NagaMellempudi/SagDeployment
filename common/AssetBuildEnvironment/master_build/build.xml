@@ -21,6 +21,7 @@
 	    </loadproperties>
         </then>
         <else>
+		<echo level="info" >Else: ${basedir}</echo>
 		<native2ascii encoding="UTF-8" src="${basedir}" dest="${basedir}" includes="**/*.properties" ext=".properties.ascii"/>
         <loadproperties srcFile="build.properties.ascii">
 		<filterchain>
