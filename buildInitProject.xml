@@ -102,7 +102,11 @@
 	<target name="initOptionalProperties" depends="initISProjectsDir,initISConfigDir,initBPMProjectsDir,initMWSProjectsDir,initRulesProjectsDir,initUMProjectDir,initTestPackageNamePattern,initJenkinsReportDir">
 	</target>
 		
-	<target name="initProject" depends="initSystemProperties,initMandatoryProperties,initOptionalProperties" description="init properties needed for the project">
+	<!-- <target name="initProject" depends="initSystemProperties,initMandatoryProperties,initOptionalProperties" description="init properties needed for the project">
+	</target> -->
+
+	<target name="initProject" depends="" description="init properties needed for the project">
+		<echo message="Hello Naga. Running initProject.." />
 	</target>
 	
 </project>
