@@ -11,7 +11,7 @@
 
 	<taskdef classpath="lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
 				
-	<target name="build" depends="initProject">		
+	<target name="build" depends="initProject,buildWM">		
 		<description>Build project.</description>
 		<echo message="Hello Naga. Running initProject.." />
 	</target>
