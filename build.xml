@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <project name="Build and Deploy Solution" default="buildDeployTest" basedir="." >
-	<property file="${project.properties}"/>
+	<!-- <property file="${project.properties}"/>
 	<property file="System.properties"/>
         
 	<import file="buildInitProject.xml"/>
-	<import file="buildCallABE.xml"/>
+	<import file="buildCallABE.xml"/> -->
 	<!-- <import file="buildDeployer.xml"/>
 	<import file="buildTest.xml"/> -->
 	
@@ -13,6 +13,7 @@
 				
 	<target name="build" depends="">		
 		<description>Build project.</description>
+		<echo message="Hello Naga. Running initProject.." />
 	</target>
 
 	<!-- <target name="build" depends="initProject,buildWM">		
