@@ -8,10 +8,18 @@
 	<!-- <import file="buildDeployer.xml"/>
 	<import file="buildTest.xml"/> -->
 	
+<!-- 
+	<taskdef classpath="lib/ant-contrib.jar" resource="/usr/bin/ant/net/sf/antcontrib/antlib.xml"/> -->
 
-	<taskdef classpath="lib/ant-contrib.jar" resource="/usr/bin/ant/net/sf/antcontrib/antlib.xml"/>
+	<available classname="net.sf.antcontrib.logic.ForTask" property="contrib.installed"/>
+
+    <target name="install-contrib" unless="contrib.installed">
+        <mkdir dir="${user.home}/.ant/lib"/>
+        <get dest="${user.home}/.ant/lib/ant-contrib.jar" src="http://search.maven.org/remotecontent?filepath=ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3.jar"/>
+        <fail message="Ant Contrib installed - Run Ant again"/>
+    </target>
 				
-	<target name="build" depends="initProject,buildWM">		
+	<target name="build" depends="install-contrib, initProject,buildWM">		
 		<description>Build project.</description>
 		<echo message="Hello Naga. Running initProject.." />
 	</target>
