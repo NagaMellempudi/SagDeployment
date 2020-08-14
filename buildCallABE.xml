@@ -10,7 +10,7 @@
 
 <project name="Build" default="buildWM" basedir=".">
         
-        <property name="abeHome" value="${SAGHome}/common/AssetBuildEnvironment"/>
+        <property name="abeHome" value="common/AssetBuildEnvironment"/>
         
         <property name="abeBuildfileDir" value="master_build"/>
 
