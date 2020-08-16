@@ -5,8 +5,8 @@
         
 	<import file="buildInitProject.xml"/>
 	<import file="buildCallABE.xml"/>
-	<!-- <import file="buildDeployer.xml"/>
-	<import file="buildTest.xml"/> -->
+	<import file="buildDeployer.xml"/>
+	<import file="buildTest.xml"/>
     <property name="SAGHome" value="common/AssetBuildEnvironment"/>
 	<taskdef classpath="lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
 				
