@@ -13,6 +13,7 @@
 	<!-- system properties properties -->
 	<target name="TestTargetNaga">		
 		<echo message="Hello Naga. Running initSAGHome.." />
+		<echo>deployerProjectDefinition: ${deployerProjectDefinition}</echo>
 	</target>
 	<target name="initSAGHome" depends="TestTargetNaga" unless="SAGHome">
 		<echo message="Hello. Running initSAGHome.." />
