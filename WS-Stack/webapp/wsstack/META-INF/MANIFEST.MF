@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 25.181-b13 (Oracle Corporation)
+Built-By: Software AG
+Build-Jdk: 1.8.0_181
+Build-Date: 2019-08-30 12:03:17
+Build-Number: 337
+SVN-Revision: 6380901
+Implementation-Title: wsstack-war
+Implementation-Description: WebServices-Stack war distribution
+Implementation-Version: 10.5.0.0
+Implementation-Vendor: Software AG
+

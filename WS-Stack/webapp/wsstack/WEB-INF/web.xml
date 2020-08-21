@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+/*
+ * Copyright 2001-2014 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <display-name>Apache-Axis2</display-name>
+    <servlet>
+        <servlet-name>AxisServlet</servlet-name>
+        <display-name>Apache-Axis Servlet</display-name>
+        <servlet-class>
+            com.softwareag.wsstack.deployment.server.SAGAdminServlet
+		</servlet-class>
+        <!--<init-param>-->
+        <!--<param-name>axis2.xml.path</param-name>-->
+        <!--<param-value>/WEB-INF/conf/axis2.xml</param-value>-->
+        <!--<param-name>axis2.xml.url</param-name>-->
+        <!--<param-value>http://localhot/myrepo/axis2.xml</param-value>-->
+        <!--<param-name>axis2.repository.path</param-name>-->
+        <!--<param-value>/WEB-INF</param-value>-->
+        <!--<param-name>axis2.repository.url</param-name>-->
+        <!--<param-value>http://localhot/myrepo</param-value>-->
+        <!--</init-param>-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- The AxisRESTServlet is no  more part of axis2 kernel. As a consequence when WSS .war file is deployed and started at WebSphere an exception is thrown.-->
+    <!-- E.g. : java.lang.ClassNotFoundException: org.apache.axis2.transport.http.AxisRESTServlet in classloader default/wsstack/1201608833697/war -->
+    <!--servlet>
+        <servlet-name>AxisRESTServlet</servlet-name>
+        <display-name>Apache-Axis Servlet (REST)</display-name>
+        <servlet-class>
+            org.apache.axis2.transport.http.AxisRESTServlet
+		</servlet-class>
+    </servlet-->
+    <servlet>
+        <servlet-name>AxisAdminServlet</servlet-name>
+        <display-name>Apache-Axis AxisAdmin Servlet (REST)</display-name>
+        <servlet-class>
+            com.softwareag.wsstack.webapp.WSSAdminServlet
+		</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeployServlet</servlet-name>
+        <display-name>Apache-Axis AxisAdmin Servlet (REST)</display-name>
+        <servlet-class>
+            com.softwareag.wsstack.deployment.server.DeployServlet
+		</servlet-class>
+		<init-param>
+		    <param-name>DISABLE_AUTHENTICATION</param-name>
+		    <param-value>false</param-value>
+		</init-param>
+    </servlet>
+    
+    <filter>
+	   <filter-name>AuthFilter</filter-name>
+	   <filter-class>com.softwareag.wsstack.webapp.AuthFilter</filter-class>
+	   <init-param>
+	      <param-name>loginLocation</param-name>
+	      <param-value>/axis2-admin</param-value>
+	    </init-param> 
+	</filter>
+    
+    <filter>
+	   <filter-name>CustomResponseHeadersFilter</filter-name>
+	   <filter-class>com.softwareag.wsstack.webapp.CustomResponseHeadersFilter</filter-class>
+	</filter>
+
+    <!--
+    <servlet>
+       <servlet-name>SOAPMonitorService</servlet-name>
+       <display-name>SOAPMonitorService</display-name>
+       <servlet-class>
+         org.apache.axis2.soapmonitor.servlet.SOAPMonitorService
+       </servlet-class>
+       <init-param>
+          <param-name>SOAPMonitorPort</param-name>
+          <param-value>5001</param-value>
+       </init-param>
+       <load-on-startup>1</load-on-startup>
+    </servlet>
+    -->
+    
+    <servlet-mapping>
+        <!--servlet-name>AxisRESTServlet</servlet-name-->
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/servlet/AxisServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>*.jws</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>    
+    
+    <servlet-mapping>
+        <servlet-name>DeployServlet</servlet-name>
+        <url-pattern>/sagdeployer/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisAdminServlet</servlet-name>
+        <url-pattern>/axis2-admin/*</url-pattern>
+    </servlet-mapping>
+    
+    <filter-mapping>
+	   <filter-name>AuthFilter</filter-name>
+	   <url-pattern>/axis2-web/HappyAxis.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	   <filter-name>AuthFilter</filter-name>
+	   <url-pattern>/axis2-web/receivePostRequestTest.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	   <filter-name>CustomResponseHeadersFilter</filter-name>
+	   <url-pattern>*</url-pattern>
+	</filter-mapping>
+	
+	<!--
+    <servlet-mapping>
+        <servlet-name>SOAPMonitorService</servlet-name>
+        <url-pattern>/SOAPMonitor</url-pattern>
+    </servlet-mapping>
+    -->
+    
+   <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+      <welcome-file>index.html</welcome-file>
+      <welcome-file>/axis2-web/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <error-page>
+      <error-code>404</error-code>
+      <location>/axis2-web/Error/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/axis2-web/Error/error500.jsp</location>
+    </error-page>
+
+    <!-- 
+    Uncomment this if you want to disable HTTP access to the Deploy and Admin servlets and
+    require HTTPS only.
+    
+	<security-constraint>
+	    <web-resource-collection>
+	        <web-resource-name>DeployServlet</web-resource-name>
+	        <url-pattern>/sagdeployer/*</url-pattern>
+	    </web-resource-collection>
+	    <user-data-constraint>
+	        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	    </user-data-constraint>
+	</security-constraint>
+	<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>AxisAdminServlet</web-resource-name>
+            <url-pattern>/axis2-admin/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+	-->
+</web-app>
